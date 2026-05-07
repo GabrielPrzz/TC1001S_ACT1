@@ -112,19 +112,14 @@ paint.py
 
 6. **Deshacer si cometes error** - Presiona `U`
 
-## Ejercicios de Mejora
+## Caracteristicass agregadas
 
-El código incluye 5 ejercicios sugeridos:
-
-### 1. Agregar un color ✅
+### 1. Se agrego un color extra (rosa) ✅
 ```python
-onkey(lambda: color('orange'), 'O')  # Naranja
-onkey(lambda: color('yellow'), 'Y')  # Amarillo
+onkey(lambda: color('pink'), 'P')  #Rosa
 ```
 
-### 2. Completar circle ✅
-**Problema actual:** Dibuja desde el punto final  
-**Solución:**
+### 2. Dibujar circle ✅
 ```python
 def circle(start, end):
     """Draw circle from start to end."""
@@ -139,9 +134,7 @@ def circle(start, end):
     end_fill()
 ```
 
-### 3. Completar rectangle ✅
-**Problema actual:** `length = (end.y-start.y)/2` divide por 2  
-**Solución:**
+### 3. Dibujar rectangle ✅
 ```python
 def rectangle(start, end):
     """Draw rectangle from start to end."""
@@ -159,9 +152,7 @@ def rectangle(start, end):
     end_fill()
 ```
 
-### 4. Completar triangle ✅
-**Problema actual:** `left(60)` debería ser `left(120)`  
-**Solución:**
+### 4. Dibujar triangle ✅
 ```python
 def triangle(start, end):
     """Draw triangle from start to end."""
@@ -176,23 +167,6 @@ def triangle(start, end):
     end_fill()
 ```
 
-### 5. Agregar parámetro width 🎯
-```python
-def line(start, end, width=1):
-    """Draw line from start to end with custom width."""
-    up()
-    goto(start.x, start.y)
-    down()
-    pensize(width)
-    goto(end.x, end.y)
-
-# En la configuración:
-width_state = {'width': 1}
-onkey(lambda: width_state.update({'width': 3}), '1')  # Grosor fino
-onkey(lambda: width_state.update({'width': 5}), '2')  # Grosor medio
-onkey(lambda: width_state.update({'width': 10}), '3') # Grosor grueso
-```
-
 ## Posibles Mejoras Avanzadas
 
 - 🎨 **Paleta de colores RGB** - Selector visual de colores
@@ -203,23 +177,6 @@ onkey(lambda: width_state.update({'width': 10}), '3') # Grosor grueso
 - 🔄 **Rehacer (Redo)** - Complemento al undo
 - 🧹 **Limpiar canvas** - Borrar todo
 - 📚 **Galería de dibujos** - Historial de creaciones
-
-## Implementación Rápida: Paleta RGB
-
-```python
-color_state = {'r': 0, 'g': 0, 'b': 0}
-
-def update_color():
-    """Update color based on RGB values."""
-    r = color_state['r'] / 255
-    g = color_state['g'] / 255
-    b = color_state['b'] / 255
-    color(r, g, b)
-
-# Teclas para ajustar
-onkey(lambda: color_state.update({'r': min(255, color_state['r']+10)}), '+')
-onkey(lambda: color_state.update({'r': max(0, color_state['r']-10)}), '-')
-```
 
 ## Licencia
 
